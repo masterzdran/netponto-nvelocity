@@ -1,0 +1,15 @@
+http://sdn.sitecore.net/Articles/API/Using%20NVelocity.aspx
+http://www.javaworld.com/javaworld/jw-12-2001/jw-1228-velocity.html
+http://velocity.apache.org/engine/devel/developer-guide.html
+http://www.onjava.com/pub/a/onjava/2004/05/05/cg-vel1.html
+http://www.auctivacommerce.com/help/Entry.aspx?id=An-introduction-to-NVelocity-for-custom-email-template-design
+http://www.codeproject.com/Articles/12751/Template-merging-with-NVelocity-and-ASP-NET
+http://chrisseroka.wordpress.com/2013/08/01/generating-html-document-from-template-using-nvelocity/
+http://www.c-sharpcorner.com/uploadfile/mgold/using-nvelocity-and-withclass-to-generate-C-Sharp-code/
+http://sitecorejunkie.com/category/nvelocity/
+http://learndotcms.com/2008/08/getting-started-with-velocity/
+http://www.ibm.com/developerworks/library/j-velocity/
+http://docs.castleproject.org/Default.aspx?Page=NVelocity&NS=MonoRail&AspxAutoDetectCookieSupport=1
+http://blogs.planetcloud.co.uk/mygreatdiscovery/post/Flexible-email-templates-using-NVelocity.aspx
+http://yeskarthik.blogspot.pt/2012/07/nvelocity-code-sample.html
+http://sitecorejunkie.com/2012/11/06/kicking-it-into-overdrive-with-nvelocity/

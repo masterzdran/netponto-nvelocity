@@ -1,0 +1,144 @@
+This variable, like all references, begins with the $ character. String values are always enclosed in quotes, either single or double quotes. Single quotes will ensure that the quoted value will be assigned to the reference as is. Double quotes allow you to use velocity references and directives to interpolate, such as "Hello $name", where the $name will be replaced by the current value before that string literal is assigned to the left hand side of the =
+
+The following rule of thumb may be useful to better understand how Velocity works: References begin with $ and are used to get something. Directives begin with # and are used to do something.
+
+Comments
+	A single line comment begins with ## and finishes at the end of the line.
+	Multi-line comments, which begin with #* and end with *#
+	the VTL comment block, which begin with #** and end with *#
+
+References
+	three types of references
+		variables
+		properties
+		methods
+	Variables
+		The shorthand notation: leading "$" character followed by a VTL Identifier
+		A VTL Identifier must start with an alphabetic character (a .. z or A .. Z). The rest of the characters are limited to the following types of characters:
+			alphabetic (a .. z, A .. Z)
+			numeric (0 .. 9)
+			hyphen ("-")
+			underscore ("_")
+		Examples:
+			$foo
+			$mudSlinger
+			$mud-slinger
+			$mud_slinger
+			$mudSlinger1
+	Properties
+		The shorthand notation consists of a leading $ character followed a VTL Identifier, followed by a dot character (".") and another VTL Identifier
+		Examples:
+			$customer.Address
+			$purchase.Total
+			Take the first example, $customer.Address. It can have two meanings. It can mean, Look in the hashtable identified as customer and return the value associated with the key Address. But $customer.Address can also be referring to a method (references that refer to methods will be discussed in the next section); $customer.Address could be an abbreviated way of writing $customer.getAddress(). 
+	Methods
+		Methods are references that consist of a leading "$" character followed a VTL Identifier, followed by a VTL Method Body. A VTL Method Body consists of a VTL Identifier followed by an left parenthesis character ("("), followed by an optional parameter list, followed by right parenthesis character (")").
+		Examples:
+			$customer.getAddress()
+			$purchase.getTotal()
+			$page.setTitle( "My Home Page" )
+			$person.setAttributes( ["Strange", "Weird", "Excited"] )
+	Formal Reference Notation 
+		${followed a VTL Identifier}
+		Examples:
+			Jack is a $vicemaniac. != Jack is a ${vice}maniac.
+	Quiet Reference Notation 
+		When Velocity encounters an undefined reference, its normal behavior is to output the image of the reference.
+		When the form initially loads, the variable reference $email has no value, but you prefer a blank text field to one with a value of "$email". Using the quiet reference notation circumvents Velocity's normal behavior; instead of using $email in the VTL you would use $!email.
+	Formal and quiet reference notation can be used together
+		<input type="text" name="email" value="$!{email}"/>
+
+Strict Reference Mode
+	strict reference mode which is activated by setting the velocity configuration property 'runtime.references.strict' to true
+	The general intent of this setting is to make Velocity behave more strictly in cases that are undefined or ambiguous, similar to a programming language, which may be more appropriate for some uses of Velocity. In such undefined or ambiguous cases Velocity will throw an exception.
+Directives
+	Directives always begin with a #.
+	Like references, the name of the directive may be bracketed by a { and a } symbol
+
+	#set
+		directive is used for setting the value of a reference.
+		The right hand side (RHS) can also be a simple arithmetic expression
+		If the RHS is a property or method reference that evaluates to null, it will not be assigned to the LHS
+		When using the #set directive, string literals that are enclosed in double quote characters will be parsed and rendered
+		However, when the string literal is enclosed in single quote characters, it will not be parsed
+		Alternately, the #[[don't parse me!]]# syntax allows the template designer to easily use large chunks of uninterpreted and unparsed content in VTL code. This can be especially useful in place of escaping multiple directives or escaping sections which have content that would otherwise be invalid (and thus unparseable) VTL
+
+		#set( $primate = "monkey" )
+		#[[
+			#foreach ($woogie in $boogie)
+  				nothing will happen to $woogie
+			#end
+		]]#
+Conditionals
+	If / ElseIf / Else
+		The content between the #if and the #end statements become the output if the evaluation is true
+		The #if directive in Velocity allows for text to be included when the web page is generated, on the conditional that the if statement is true
+			$foo is a boolean (true/false) which has a true value
+			$foo is a string or a collection which is not null and not empty
+			$foo is an object (other than a string or a collection) which is not null
+		An #elseif or #else element can be used with an #if element
+		Relational and Logical Operators	
+			Note that the semantics of == are slightly different than Java where == can only be used to test object equality
+			## logical AND: &&
+			## logical OR: ||
+			##logical NOT: !
+Loops
+	Foreach Loop
+		#foreach( $product in $allProducts )
+    		<li>$product</li>
+		#end
+		Lets say that $allProducts is a Hashtable
+			#foreach( $key in $allProducts.keySet() )
+    			<li>Key: $key -> Value: $allProducts.get($key)</li>
+			#end
+			get the loop counter: $foreach.count
+			tell if you are on the last iteration of a loop: $foreach.hasNext, $foreach.first and $foreach.last
+			want a zero-based index: $foreach.index
+Include
+	import a local file: #include( "one.txt" )
+		The contents of the file are not rendered through the template engine
+		For security reasons, the file to be included may only be under TEMPLATE_ROOT.
+		The file to which the #include directive refers is enclosed in quotes. If more than one file will be included, they should be separated by commas
+	#include( "greetings.txt", $seasonalstock )
+Parse
+	import a local file that contains VTL: #parse( "me.vm" )
+	 	Any templates to which #parse refers must be included under TEMPLATE_ROOT
+	 	#parse will only take a single argument.
+Break
+	The #break directive stops any further rendering of the current execution scope.
+Stop
+	The #stop directive stops any further rendering and execution of the template
+		This is handy as an early exit from a template. For debugging purposes, you may provide a message argument (e.g. #stop('$foo was not in context') ) that will be written to the logs (DEBUG level, of course) upon completion of the stop command.
+Evaluate
+	The #evaluate directive can be used to dynamically evaluate VTL
+		Such a string might be used to internationalize the template or to include parts of a template from a database
+Define
+	The #define directive lets one assign a block of VTL to a reference.
+Velocimacros
+	The #macro script element allows template designers to define a repeated segment of a VTL template. Velocimacros are very useful in a wide range of scenarios both simple and complex. This Velocimacro, created for the sole purpose of saving keystrokes and minimizing typographic errors, provides an introduction to the concept of Velocimacros.
+	#macro( d )
+	<tr><td></td></tr>
+	#end
+	Velocimacro Arguments
+		Reference : anything that starts with '$'
+		String literal : something like "$foo" or 'hello'
+		Number literal : 1, 2 etc
+		IntegerRange : [ 1..2] or [$foo .. $bar]
+		ObjectArray : [ "a", "b", "c"]
+		boolean value true
+		boolean value false
+Getting literal
+	Escaping Valid VTL References: using the backslash ( \ )
+	Escaping Invalid VTL References : ${Variable}{my:invalid:non:reference}
+	Escaping VTL Directives: using the backslash ( \ )
+VTL: Formatting Issues
+	Do what ever you want. ;-)
+Other Features and Miscellany
+	Math
+		can be used in templates with the set directive: +, -, *, /, %
+	Range Operator
+		#set and #foreach statements: [n..m] , #foreach( $foo in [1..5] )
+
+
+
+
