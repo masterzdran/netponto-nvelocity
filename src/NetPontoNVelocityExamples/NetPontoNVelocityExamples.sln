@@ -3,6 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetPontoNVelocityExamples", "NetPontoNVelocityExamples\NetPontoNVelocityExamples.csproj", "{BE9FA3FF-9DE1-4D18-9ECC-050DE569FC29}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetPontoVTLHelloWorld", "NetPontoVTLHelloWorld\NetPontoVTLHelloWorld.csproj", "{D425EF0E-CE66-4CAC-80E1-3155B09B8A52}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetPontoVTLDemo", "NetPontoVTLDemo\NetPontoVTLDemo.csproj", "{9B93B0BC-9603-4273-99DE-7FB8CFB60560}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetPontoVTLDirectives", "NetpontoVTLDirectives\NetPontoVTLDirectives.csproj", "{4717A7D0-4C84-48D6-88A5-5B6E25E41935}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +19,18 @@ Global
 		{BE9FA3FF-9DE1-4D18-9ECC-050DE569FC29}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE9FA3FF-9DE1-4D18-9ECC-050DE569FC29}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE9FA3FF-9DE1-4D18-9ECC-050DE569FC29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D425EF0E-CE66-4CAC-80E1-3155B09B8A52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D425EF0E-CE66-4CAC-80E1-3155B09B8A52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D425EF0E-CE66-4CAC-80E1-3155B09B8A52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D425EF0E-CE66-4CAC-80E1-3155B09B8A52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B93B0BC-9603-4273-99DE-7FB8CFB60560}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B93B0BC-9603-4273-99DE-7FB8CFB60560}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B93B0BC-9603-4273-99DE-7FB8CFB60560}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B93B0BC-9603-4273-99DE-7FB8CFB60560}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4717A7D0-4C84-48D6-88A5-5B6E25E41935}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4717A7D0-4C84-48D6-88A5-5B6E25E41935}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4717A7D0-4C84-48D6-88A5-5B6E25E41935}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4717A7D0-4C84-48D6-88A5-5B6E25E41935}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

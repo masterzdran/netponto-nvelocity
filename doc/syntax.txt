@@ -51,6 +51,10 @@ References
 Strict Reference Mode
 	strict reference mode which is activated by setting the velocity configuration property 'runtime.references.strict' to true
 	The general intent of this setting is to make Velocity behave more strictly in cases that are undefined or ambiguous, similar to a programming language, which may be more appropriate for some uses of Velocity. In such undefined or ambiguous cases Velocity will throw an exception.
+
+  
+  
+  
 Directives
 	Directives always begin with a #.
 	Like references, the name of the directive may be bracketed by a { and a } symbol

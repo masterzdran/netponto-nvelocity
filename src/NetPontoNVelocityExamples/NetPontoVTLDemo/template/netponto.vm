@@ -1,0 +1,26 @@
+﻿-------------------------------------------------------------------------------
+Referências
+-------------------------------------------------------------------------------
+#**
+Name
+Event
+    EventName
+    EventLocalization
+*#
+
+Variáveis:
+Notação Normal:   \$Name = $Name
+Notação Formal:   \${Name} = ${Name}
+Notação Silenciosa: 
+\$!{Name} : $!{Name}
+${Age} : ${Age}
+
+
+Propriedades:
+Notação Normal:
+  \$Event.EventName : $Event.EventName
+Notação Formal:
+  \${Event.EventLocalization} : ${Event.EventLocalization}
+Notação Silenciosa:
+  \$!{Event.EventNbrAttendees} : $!{Event.EventNbrAttendees}
+  ${Event.EventNbrAttendees} : $!{Event.EventNbrAttendees}
