@@ -2,6 +2,33 @@
 <head>
 </head>
 <body>
-#parse ("templates/events.vm")
+
+#foreach ($event in $Events)
+  #beforeall
+       <table>
+               <tr>
+               <th>Event Name</th>
+               <th>Localization</th>
+               </tr>
+  #before
+       <tr
+  #odd
+       Style='color:gray'>
+  #even
+       Style='color:blue'>
+ 
+  #each
+       <td>$event.EventName</td> <td>$event.EventLocalization</td>
+ #after
+       </tr>
+#between
+       <tr><td colspan='2'>$event</td></tr>
+#afterall
+       </table>
+ 
+#nodata
+       Sorry No Event Found
+
+#end
 </body>
 </html

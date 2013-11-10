@@ -50,9 +50,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="events.vm">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="packages.config" />
     <None Include="templates\netponto.vm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

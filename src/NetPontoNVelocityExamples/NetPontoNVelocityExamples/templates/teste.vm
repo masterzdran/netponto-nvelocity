@@ -1,13 +1,10 @@
-﻿Hello $Name.
-
-$!Class.Visibility class $Class.Name 
+﻿$!Class.Visibility class $Class.Name 
 {
   //under construction
 
   #foreach ($method in $Class.Methods)
-
   $method.Visibility $method.ReturnType $method.Name (#foreach($param in $method.ParamType) $param p$velocityCount #between
-,  #end)
+,  #end )
   {
     // under construction
   }

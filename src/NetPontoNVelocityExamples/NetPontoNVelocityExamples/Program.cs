@@ -5,14 +5,6 @@ using NVelocity;
 using NVelocity.App;
 using System.Collections.Generic;
 
-
-/*
- * adapted from: 
- * http://francisodisi.wordpress.com/2010/07/24/nvelocity-exemplo-basico-de-utilizacao/
- * 
- * user guide
- * http://velocity.apache.org/engine/devel/developer-guide.html
- * */
 namespace NetPontoNVelocityExamples
 {
   class Program
@@ -24,13 +16,15 @@ namespace NetPontoNVelocityExamples
       /*
        * from:
        * http://velocity.apache.org/engine/devel/developer-guide.html#thefundamentalpattern
-       * When using Velocity in an application program or in a servlet (or anywhere, actually), you will generally do the following:
+       * When using Velocity in an application program or in a servlet (or anywhere, actually), 
+       * you will generally do the following:
        * 1 - Initialize Velocity.
        * 2 - Create a Context object (more on what that is later).
        * 3 - Add your data objects to the Context.
        * 4 - Choose a template.
        * 5 - 'Merge' the template and your data to produce the ouput.
        * */
+      #region DoesNotMatter
       List<String> argsType = new List<String>();
       argsType.Add("int");
       argsType.Add("String");
@@ -52,7 +46,7 @@ namespace NetPontoNVelocityExamples
       Classz c = new Classz("MyClass");
       c.Visibility = "public";
       c.Methods = ms;
-
+      #endregion
 
       //1 - Initialize Velocity.
       Velocity.Init();
@@ -63,24 +57,10 @@ namespace NetPontoNVelocityExamples
 
       context.Put("Class", c);
       //4 - Choose a template.
-      Template t = Velocity.GetTemplate(@"views/teste.vm");
+      Template t = Velocity.GetTemplate(@"templates/teste.vm");
       //5 - 'Merge' the template and your data to produce the ouput.
       StringWriter sw = new StringWriter();
       t.Merge(context, sw);
-
-
-
-      //VelocityEngine v = new VelocityEngine();
-      //v.Init();
-      //ExtendedProperties p = new ExtendedProperties();
-      //v.Init(p);
-      //Template t = v.GetTemplate(@"views/teste.vm");
-      //VelocityContext vc = new VelocityContext();
-      //vc.Put("Name", "Netponto");
-      //StringWriter sw = new StringWriter();
-      //t.Merge(vc, sw);
-
-      
 
       //Show the result
       Console.WriteLine(sw.GetStringBuilder().ToString());
